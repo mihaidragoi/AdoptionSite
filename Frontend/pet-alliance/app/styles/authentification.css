@@ -44,11 +44,12 @@
 
 .auth__field input {
   padding: 0.7rem 1rem;
-  border: 1px solid var(--neutral);
+  border: 1px solid var(--border);
   border-radius: 999px;
-  background: #fff;
+  background: var(--input-bg);
   font-family: var(--font-body);
   font-size: 1rem;
+  color: var(--text);
 }
 
 .auth__field input:focus {
@@ -126,7 +127,7 @@
   font-family: var(--font-headline);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--primary-dark);
+  color: var(--link);
 }
 
 .auth__perks {
@@ -140,7 +141,7 @@
 .auth__perks li {
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  background: #fff;
+  background: var(--input-bg);
   font-size: 0.85rem;
   font-weight: 500;
 }

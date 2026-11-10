@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --primary: #E76F51;
   --primary-dark: #A63D26;
@@ -14,6 +18,26 @@
   --font-body: var(--font-vietnam), sans-serif;
 
   --radius: 16px;
+
+  --heading: #264653;
+  --link: #A63D26;
+  --footer-bg: #264653;
+  --input-bg: #ffffff;
+  --border: #264653;
+}
+
+[data-theme="dark"]
+{
+  --bg: #0F1E24;
+  --surface: #18303A;
+  --text: #E8F1F4;
+  --text-muted: #9FB3BB;
+
+  --heading: #F4F8FA;
+  --link: #F4A261;
+  --footer-bg: #0A1519;
+  --input-bg: #0F1E24;
+  --border: #3C5A66;
 }
 
 html{
@@ -33,20 +57,37 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   line-height: 1.5;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 h1,h2,h3,h4,h5,h6 {
   font-family: var(--font-headline);
-  color: var(--neutral);
+  color: var(--heading);
   line-height: 1.25;
 }
 
 a{
-  color: var(--primary-dark);
+  color: var(--link);
   text-decoration: none;
 }
 
 img{
   max-width: 100%;
   display: block;
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }

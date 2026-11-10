@@ -15,14 +15,33 @@ const vietnam = Be_Vietnam_Pro({
 
 export const metadata: Metadata = {
   title: "PetAlliance - Find Your Perfect Companion",
-  description: "Adopt a pet and give them a loving home with PetAlliance. Browse available pets.",
+  description:
+    "Adopt a pet and give them a loving home with PetAlliance. Browse available pets.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+const themeScript = `
+  try{
+  var t = localStorage.getItem('theme');
+  if(!t)
+    t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', t);
+  } catch(e) {
+    console.error('Error setting theme:', e);
+  }
+`;
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html
-      lang="en"
-      className={`${jakarta.variable} ${vietnam.variable} h-full antialiased`}>
+    <html lang="en" className={`${jakarta.variable} ${vietnam.variable}`}   suppressHydrationWarning>
+      
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      
       <body>{children}</body>
     </html>
   );
