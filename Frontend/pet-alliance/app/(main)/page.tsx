@@ -1,13 +1,12 @@
-import Image from "next/image";
 import "../styles/home.css";
 import Link from "next/link";
 import Carousel from "../components/Carousel";
+import "../styles/buttons.css";
 
 export default function Home() {
   return (
-    <div className="home-container">
-      <main className="container max-w-3xl flex flex-col items-center">
-        <h1>
+    <div className="home-container container">
+        <h1 className="home-title">
           Welcome to PetAlliance!
         </h1>
         
@@ -41,8 +40,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-        
-      </main>
      </div>
   );
 }

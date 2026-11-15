@@ -1,14 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --primary: #E76F51;
   --primary-dark: #A63D26;
   --secondary: #F4A261;
   --tertiary: #2A9D8F;
-  --neutral: #264653;
-
+  
   --bg: #D9F2FF;
   --surface: #C4E6F7;
   --text: #264653;

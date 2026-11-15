@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import "../styles/authentification.css";
+import "../styles/auth.css";
+import "../styles/buttons.css";
 
 export default function RegisterPage() {
   const [name, setName] = useState("");
@@ -31,15 +32,15 @@ export default function RegisterPage() {
 
   return (
     <div className="auth">
-      <div className="auth__wrapper">
-        <p className="auth__brand">🐾 PetAlliance</p>
+      <div className="auth-container">
+        <p className="auth-logo">🐾 PetAlliance</p>
 
-        <section className="auth__card">
-          <h1 className="auth__title">Create account</h1>
-          <p className="auth__subtitle">Join PetAlliance and find your companion.</p>
+        <section className="auth-card">
+          <h1 className="auth-title">Create account</h1>
+          <p className="auth-subtitle">Join PetAlliance and find your companion.</p>
 
-          <form className="auth__form" onSubmit={handleSubmit} noValidate>
-            <div className="auth__field">
+          <form className="auth-form" onSubmit={handleSubmit} noValidate>
+            <div className="auth-field">
               <label htmlFor="name">Full name</label>
               <input
                 id="name"
@@ -50,7 +51,7 @@ export default function RegisterPage() {
               />
             </div>
 
-            <div className="auth__field">
+            <div className="auth-field">
               <label htmlFor="email">Email</label>
               <input
                 id="email"
@@ -61,7 +62,7 @@ export default function RegisterPage() {
               />
             </div>
 
-            <div className="auth__field">
+            <div className="auth-field">
               <label htmlFor="password">Password</label>
               <input
                 id="password"
@@ -72,7 +73,7 @@ export default function RegisterPage() {
               />
             </div>
 
-            <div className="auth__field">
+            <div className="auth-field">
               <label htmlFor="confirmPassword">Confirm password</label>
               <input
                 id="confirmPassword"
@@ -83,17 +84,17 @@ export default function RegisterPage() {
               />
             </div>
 
-            {error && <p className="auth__error" role="alert">{error}</p>}
+            {error && <p className="auth-error" role="alert">{error}</p>}
 
-            <button type="submit" className="auth__submit">Sign up</button>
+            <button type="submit" className="btn-primary">Sign up</button>
           </form>
 
-          <p className="auth__footer">
+          <p className="auth-signup">
             Already have an account? <Link href="/login">Log in</Link>
           </p>
         </section>
 
-        <ul className="auth__perks">
+        <ul className="auth-features">
           <li>🔍 Browse animals</li>
           <li>📝 Apply online</li>
           <li>💬 Contact shelters</li>

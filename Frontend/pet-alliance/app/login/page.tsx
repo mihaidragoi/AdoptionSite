@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import "../styles/authentification.css";
+import "../styles/auth.css";
+import "../styles/buttons.css";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -21,15 +22,15 @@ export default function LoginPage() {
 
   return (
     <div className="auth">
-      <div className="auth__wrapper">
-        <p className="auth__brand">🐾 PetAlliance</p>
+      <div className="auth-container">
+        <p className="auth-logo">🐾 PetAlliance</p>
 
-        <section className="auth__card">
-          <h1 className="auth__title">Welcome back</h1>
-          <p className="auth__subtitle">Log in to your PetAlliance account.</p>
+        <section className="auth-card">
+          <h1 className="auth-title">Welcome back</h1>
+          <p className="auth-subtitle">Log in to your PetAlliance account.</p>
 
-          <form className="auth__form" onSubmit={handleSubmit} noValidate>
-            <div className="auth__field">
+          <form className="auth-form" onSubmit={handleSubmit} noValidate>
+            <div className="auth-field">
               <label htmlFor="email">Email</label>
               <input
                 id="email"
@@ -40,7 +41,7 @@ export default function LoginPage() {
               />
             </div>
 
-            <div className="auth__field">
+            <div className="auth-field">
               <label htmlFor="password">Password</label>
               <input
                 id="password"
@@ -51,21 +52,22 @@ export default function LoginPage() {
               />
             </div>
 
-            {error && <p className="auth__error" role="alert">{error}</p>}
+            {error && <p className="auth-error" role="alert">{error}</p>}
 
-            <button type="submit" className="auth__submit">Log in</button>
+            <button type="submit" className="btn-primary">Log in</button>
           </form>
 
-          <p className="auth__footer">
+          <p className="auth-signup">
             No account yet? <Link href="/register">Sign up</Link>
           </p>
         </section>
 
-        <ul className="auth__perks">
+        <ul className="auth-features">
           <li>🔍 Browse animals</li>
           <li>📝 Apply online</li>
           <li>💬 Contact shelters</li>
         </ul>
+
       </div>
     </div>
   );

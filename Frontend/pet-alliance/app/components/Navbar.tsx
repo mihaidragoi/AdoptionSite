@@ -4,56 +4,44 @@ import {useState} from "react";
 import Link from "next/link";
 import "../styles/navbar.css";
 import ThemeToggle from "./ThemeToggle";
+import { links } from "../utils/links";
 
-const links = [
-    {
-        href: "/",
-        label: "Home"
-    },
-    {
-        href: "/animals",
-        label: "Animals"
-    },
-    {
-        href: "/donate",
-        label: "Donate"
-    }
-];
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
+    function closeMenu() {
+        setIsOpen(false);
+    }
+
     return (
         <header className="navbar">
-            <div className="navbar__inner">
-                <Link href="/" className="navbar__brand">
+            <div className="nav-container container">
+                <Link href="/" className="nav-logo">
                     🐾 PetAlliance
                 </Link>
-                <button
-                    className="navbar__toggle"
-                    aria-label="Toggle menu"
-                    aria-expanded={isOpen}
-                    onClick={() => setIsOpen(!isOpen)}
-                    >
+                <button className="nav-button" aria-label="Toggle menu" aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} type="button">
                     ☰
                 </button>
-        <nav className={`navbar__nav ${isOpen ? "navbar__nav--open" : ""}`}>
 
-          <ul className="navbar__links">
+        <nav className={`nav-menu ${isOpen ? "nav-menu--open" : ""}`}>
+
+          <ul className="nav-links">
             {links.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} onClick={() => setIsOpen(false)}>
+                <Link href={link.href} onClick={closeMenu}>
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
+
           <ThemeToggle />
-          <Link href="/login" className="navbar__cta">Log in</Link>
+          
+          <Link href="/login" className="nav-cta" onClick={closeMenu}>Log in</Link>
         </nav>
 
       </div>
-
     </header>
   );
 }

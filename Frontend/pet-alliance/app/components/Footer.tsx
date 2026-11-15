@@ -1,17 +1,21 @@
 import Link from "next/link";
 import "../styles/footer.css";
+import {links} from "../utils/links";
 
 export default function Footer() {
+
   return (
     <footer className="footer">
-      <div className="footer__inner">
-        <p className="footer__brand">🐾 PetAlliance</p>
-        <ul className="footer__links">
-          <li><Link href="/animals">Animals</Link></li>
-          <li><Link href="/donate">Donate</Link></li>
-          <li><Link href="/login">Log in</Link></li>
+      <div className="footer-container container">
+        <p className="footer-logo">🐾 PetAlliance</p>
+        <ul className="footer-links">
+          {links.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href}>{link.label}</Link>
+            </li>
+          ))}
         </ul>
-        <p className="footer__copy">
+        <p className="footer-copyright">
           © 2026 PetAlliance. Every pet deserves a home.
         </p>
       </div>

@@ -3,22 +3,24 @@
 import {useEffect, useState} from "react";
 
 export default function ThemeToggle() {
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState<"light" | "dark">("light");
+    const isDarkMode = theme === "dark";
 
     useEffect(() => {
-        setTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
+        const currentTheme = document.documentElement.dataset.theme;
+        setTheme(currentTheme === "dark" ? "dark" : "light");
     }, []);
 
     function toggle(){
-        const newTheme = theme === "dark" ? "light" : "dark";
+        const newTheme = isDarkMode ? "light" : "dark";
         setTheme(newTheme);
         document.documentElement.dataset.theme = newTheme;
-        localStorage.setItem('theme', newTheme);
+        localStorage.setItem("theme", newTheme);
     }
 
     return (
-        <button onClick={toggle} aria-label="Toggle theme" className="navbar__icon-btn" type="button">
-            {theme === "dark" ? "🌞" : "🌙"}
+        <button onClick={toggle} aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"} className="nav-icon-btn" type="button">
+            {isDarkMode ? "🌞" : "🌙"}
         </button>
     );
 }

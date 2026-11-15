@@ -20,21 +20,15 @@ export const metadata: Metadata = {
 };
 
 const themeScript = `
-  try{
-  var t = localStorage.getItem('theme');
-  if(!t)
-    t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', t);
-  } catch(e) {
-    console.error('Error setting theme:', e);
-  }
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if(savedTheme === "dark" || (!savedTheme && prefersDark)) 
+        document.documentElement.dataset.theme = "dark";
+    else 
+        document.documentElement.dataset.theme = "light";
 `;
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({children}: {children: React.ReactNode;}) {
   return (
     <html lang="en" className={`${jakarta.variable} ${vietnam.variable}`}   suppressHydrationWarning>
       

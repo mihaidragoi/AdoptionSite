@@ -6,45 +6,44 @@
   box-shadow: 0 2px 12px rgba(38, 70, 83, 0.1);
 }
 
-.navbar__inner {
+.nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0.75rem 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
-.navbar__brand {
+.nav-logo {
   font-family: var(--font-headline);
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--link);
 }
 
-.navbar__nav {
+.nav-menu {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-.navbar__links {
+.nav-links {
   display: flex;
   gap: 1.5rem;
   list-style: none;
 }
 
-.navbar__links a {
+.nav-links a {
   font-weight: 500;
   color: var(--text);
   transition: color 0.2s ease;
 }
 
-.navbar__links a:hover {
+.nav-links a:hover {
   color: var(--primary);
 }
 
-.navbar__cta {
+.nav-cta {
   padding: 0.5rem 1.25rem;
   border-radius: 999px;
   background: var(--primary-dark);
@@ -53,11 +52,29 @@
   transition: background 0.2s ease;
 }
 
-.navbar__cta:hover {
+.nav-cta:hover {
   background: var(--primary);
 }
 
-.navbar__toggle {
+.nav-icon-btn{
+  display: flex;
+  align-items: center;
+  min-width: 2.4rem;
+  height: 2.4rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nav-icon-btn:hover {
+  background: var(--bg);
+}
+
+.nav-button {
   display: none;
   background: none;
   border: none;
@@ -66,30 +83,12 @@
   cursor: pointer;
 }
 
-  .navbar__icon-btn{
-    display: flex;
-    align-items: center;
-    min-width: 2.4rem;
-    height: 2.4rem;
-    padding: 0 0.5rem;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: transparent;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-
-    .navbar__icon-btn:hover {
-        background: var(--bg);
-    }
-
 @media (max-width: 768px) {
-  .navbar__toggle {
+  .nav-button {
     display: block;
   }
 
-  .navbar__nav {
+  .nav-menu {
     display: none;
     position: absolute;
     top: 100%;
@@ -101,11 +100,11 @@
     box-shadow: 0 8px 12px rgba(38, 70, 83, 0.1);
   }
 
-  .navbar__nav--open {
+  .nav-menu--open {
     display: flex;
   }
 
-  .navbar__links {
+  .nav-links {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
