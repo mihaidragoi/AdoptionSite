@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+
+:root {
+    font-family: 'Nunito', system-ui, sans-serif;
+
+    --onyx: #000f08;
+    --jet-black: #1c3738;
+    --charcoal: #4d4847;
+    --mint-cream: #f4fff8;
+    --cool-steel: #8baaad;
+
+    --color-bg: var(--mint-cream);
+    --color-text: var(--onyx);
+    --color-surface: var(--jet-black);
+    --color-primary: var(--jet-black);
+    --color-accent: var(--cool-steel);
+    --color-muted: var(--charcoal);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-color: var(--color-accent);
+    opacity: 0.1;
+
+    -webkit-mask-image: url('./assets/background/paw.svg'), url('./assets/background/paw.svg');
+    mask-image: url('./assets/background/paw.svg'), url('./assets/background/paw.svg');
+
+    -webkit-mask-repeat: repeat;
+    mask-repeat: repeat;
+
+    -webkit-mask-size: 180px 180px;
+    mask-size: 180px 180px;
+
+    -webkit-mask-position: 0 0, 60px 60px;
+    mask-position: 0 0, 60px 60px;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}

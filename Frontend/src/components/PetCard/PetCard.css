@@ -1,0 +1,69 @@
+.pet-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+
+    background-color: white;
+    color: var(--color-text);
+    border: 1px solid var(--color-accent);
+    box-shadow: none;
+}
+
+.pet-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+.pet-card h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.pet-card h4 {
+    margin: -0.35rem 0 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+
+    color: var(--color-primary);
+}
+
+.pet-card p {
+    margin: 0.25rem 0 0;
+    line-height: 1.4;
+}
+
+.pet-card button {
+    margin-top: 0.5rem;
+    padding: 0.7rem 1.25rem;
+    border: none;
+    border-radius: 999px;
+
+    background-color: var(--color-surface);
+    color: var(--color-bg);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.pet-card button:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    transform: translateY(-2px);
+}
+
+.pet-card button:active {
+    transform: translateY(0);
+}
+
+.pet-card button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}

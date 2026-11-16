@@ -1,0 +1,68 @@
+{
+    "register": {
+        "title": "Creează cont",
+        "subtitle": "Alătură-te Pet Alliance și găsește-ți noul prieten",
+        "firstName": "Prenume",
+        "lastName": "Nume",
+        "email": "Email",
+        "phone": "Telefon",
+        "phoneHint": "Format internațional, ex: +40712345678",
+        "password": "Parolă",
+        "confirmPassword": "Confirmă parola",
+        "submit": "Înregistrare",
+        "submitting": "Se creează contul...",
+        "haveAccount": "Ai deja cont?",
+        "logIn": "Conectează-te"
+    },
+    "login": {
+        "title": "Bine ai revenit",
+        "subtitle": "Conectează-te pentru a continua pe Pet Alliance",
+        "email": "Email",
+        "password": "Parolă",
+        "submit": "Conectare",
+        "submitting": "Se conectează...",
+        "noAccount": "Nu ai cont?",
+        "register": "Înregistrează-te"
+    },
+    "home": {
+        "title": "Găsește-ți noul cel mai bun prieten",
+        "welcome": "Bun venit în adăpostul nostru de animale! Aici, animalele așteaptă să găsească o familie iubitoare și o casă pentru totdeauna. Fiecare animal merită iubire și grijă!",
+        "recentlySheltered": "Animale adăpostite recent"
+    },
+    "age": {
+        "months_one": "{{count}} lună",
+        "months_few": "{{count}} luni",
+        "months_other": "{{count}} de luni",
+        "years_one": "{{count}} an",
+        "years_few": "{{count}} ani",
+        "years_other": "{{count}} de ani",
+        "yearsAndMonths": "{{years}} și {{months}}"
+    },
+    "pet": {
+        "viewDetails": "Vezi detalii"
+    },
+    "footer": {
+        "tagline": "Fiecare animal merită o casă iubitoare.",
+        "copyright": "© {{year}} Pet Alliance. Toate drepturile rezervate."
+    },
+    "navbar": {
+        "search": "Începe o căutare nouă",
+        "account": "Cont",
+        "favorites": "Favorite",
+        "cart": "Coș",
+        "greeting": "Bună, {{name}}!",
+        "logout": "Deconectare"
+    },
+    "errors": {
+        "BadEmail": "Adresa de email nu este validă.",
+        "BadPhone": "Telefonul trebuie să fie în format internațional, ex: +40712345678.",
+        "BadPassword": "Parola trebuie să aibă între 8 și 100 de caractere.",
+        "BadName": "Prenumele și numele sunt obligatorii.",
+        "EmailTaken": "Există deja un cont cu acest email.",
+        "PhoneTaken": "Există deja un cont cu acest număr de telefon.",
+        "PasswordsDontMatch": "Parolele nu coincid.",
+        "Unknown": "Ceva nu a mers. Încearcă din nou.",
+        "NoConnection": "Nu m-am putut conecta la server.",
+        "InvalidCredentials": "Email sau parolă invalidă."
+    }
+}

@@ -1,0 +1,66 @@
+{
+    "register": {
+        "title": "Create account",
+        "subtitle": "Join Pet Alliance and find your new best friend",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "phone": "Phone",
+        "phoneHint": "International format, e.g. +40712345678",
+        "password": "Password",
+        "confirmPassword": "Confirm password",
+        "submit": "Register",
+        "submitting": "Creating account...",
+        "haveAccount": "Already have an account?",
+        "logIn": "Log in"
+    },
+    "login": {
+        "title": "Welcome back",
+        "subtitle": "Log in to continue to Pet Alliance",
+        "email": "Email",
+        "password": "Password",
+        "submit": "Log in",
+        "submitting": "Logging in...",
+        "noAccount": "Don't have an account?",
+        "register": "Register"
+    },
+    "home": {
+        "title": "Find your new best friend",
+        "welcome": "Welcome to our animal adoption shop! Here, pets are waiting to find a loving family and a forever home. Every animal deserves love and care!",
+        "recentlySheltered": "Recently sheltered pets"
+    },
+    "age": {
+        "months_one": "{{count}} month",
+        "months_other": "{{count}} months",
+        "years_one": "{{count}} year",
+        "years_other": "{{count}} years",
+        "yearsAndMonths": "{{years}} and {{months}}"
+    },
+    "pet": {
+        "viewDetails": "View details"
+    },
+    "footer": {
+        "tagline": "Every pet deserves a loving home.",
+        "copyright": "© {{year}} Pet Alliance. All rights reserved."
+    },
+    "navbar": {
+        "search": "Start a new search",
+        "account": "Account",
+        "favorites": "Favorites",
+        "cart": "Cart",
+        "greeting": "Hello, {{name}}!",
+        "logout": "Log out"
+    },
+    "errors": {
+        "BadEmail": "The email address is not valid.",
+        "BadPhone": "Phone must be in international format, e.g. +40712345678.",
+        "BadPassword": "Password must be between 8 and 100 characters.",
+        "BadName": "First name and last name are required.",
+        "EmailTaken": "An account with this email already exists.",
+        "PhoneTaken": "An account with this phone number already exists.",
+        "PasswordsDontMatch": "Passwords don't match.",
+        "Unknown": "Something went wrong. Please try again.",
+        "NoConnection": "Couldn't connect to the server.",
+        "InvalidCredentials": "Invalid email or password."
+    }
+}

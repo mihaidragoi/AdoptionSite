@@ -1,0 +1,161 @@
+.main-nav-bar {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+
+    background-color: var(--color-surface);
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-bg);
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.nav-search {
+    flex: 1;
+    min-width: 0;
+    max-width: 32rem;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font: inherit;
+
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-accent);
+    color: var(--color-text);
+}
+
+.account-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.account-bar a {
+    display: flex;
+    align-items: center;
+}
+
+.nav-account,
+.nav-favorite,
+.nav-cart {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.nav-favorite,
+.nav-cart {
+    filter: brightness(0) invert(1);
+}
+
+.nav-account {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media (max-width: 600px) {
+    .main-nav-bar {
+        gap: 0.75rem;
+        padding: 0.75rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .account-bar {
+        gap: 0.6rem;
+    }
+}
+
+.logo,
+.nav-account,
+.nav-favorite,
+.nav-cart,
+.nav-logout {
+    transition: transform 0.15s ease;
+}
+
+.logo:hover,
+.nav-account:hover,
+.nav-favorite:hover,
+.nav-cart:hover,
+.nav-logout:hover {
+    transform: translateY(-2px);
+}
+
+.logo:active,
+.nav-account:active,
+.nav-favorite:active,
+.nav-cart:active,
+.nav-logout:active {
+    transform: translateY(0);
+}
+
+.nav-favorite:hover,
+.nav-cart:hover,
+.nav-logout:hover {
+    opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo,
+    .nav-account,
+    .nav-favorite,
+    .nav-cart,
+    .nav-logout {
+        transition: none;
+    }
+
+    .logo:hover,
+    .nav-account:hover,
+    .nav-favorite:hover,
+    .nav-cart:hover,
+    .nav-logout:hover {
+        transform: none;
+    }
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-username {
+    color: var(--color-bg);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .nav-username {
+        display: none;
+    }
+}
+
+.nav-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-logout img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
