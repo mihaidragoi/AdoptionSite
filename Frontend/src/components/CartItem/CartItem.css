@@ -39,6 +39,12 @@
     opacity: 0.8;
 }
 
+.cart-item-age {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
 .cart-item-remove-button {
     flex-shrink: 0;
     margin-left: auto;

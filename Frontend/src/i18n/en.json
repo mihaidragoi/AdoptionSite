@@ -37,7 +37,9 @@
         "yearsAndMonths": "{{years}} and {{months}}"
     },
     "pet": {
-        "viewDetails": "View details"
+        "viewDetails": "View details",
+        "addToCart": "Add to cart",
+        "favourite": "Add to favourites"
     },
     "footer": {
         "tagline": "Every pet deserves a loving home.",
@@ -75,7 +77,8 @@
     "cart": {
         "title": "Your cart",
         "empty": "Your cart is empty.",
-        "remove": "Remove"
+        "remove": "Remove",
+        "age": "Age"
     },
     "common": {
         "loading": "Loading..."

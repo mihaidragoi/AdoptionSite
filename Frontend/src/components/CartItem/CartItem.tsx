@@ -1,4 +1,5 @@
 import {translate} from "../../i18n/translate";
+import {formatAge} from "../../utils/FormatAge";
 import './CartItem.css'
 
 export type CartItemData = {
@@ -21,6 +22,7 @@ function CartItem({ item, onRemove }: CartItemProps) {
             <div className="cart-item-details">
                 <h3 className="cart-item-name">{item.name}</h3>
                 <p className="cart-item-description">{item.description}</p>
+                <p className="cart-item-age">{translate('cart.age')}: {formatAge(item.birthDate)}</p>
             </div>
             <button className="cart-item-remove-button" onClick={() => onRemove(item.id)}>
                 {translate('cart.remove')}

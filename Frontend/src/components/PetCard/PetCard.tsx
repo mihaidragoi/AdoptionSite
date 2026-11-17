@@ -1,4 +1,8 @@
 import { translate } from '@/i18n/translate.ts'
+import { formatAge } from '@/utils/FormatAge.ts'
+
+import heartIcon from '@/assets/navbar/heart.svg'
+import cartIcon from '@/assets/navbar/cart.svg'
 
 import './PetCard.css'
 
@@ -7,44 +11,34 @@ type PetCardProps = {
     birthDate: string;
     description: string;
     imageUrl: string;
+
+    onFavourite?: () => void;
+    onAddToCart?: () => void;
 };
 
-export function getAgeInMonths(birthDate: Date | string, today: Date = new Date()): number {
-    const birth = new Date(birthDate);
 
-    let months =
-        (today.getFullYear() - birth.getFullYear()) * 12 +
-        (today.getMonth() - birth.getMonth());
-
-    if (today.getDate() < birth.getDate()) {
-        months--;
-    }
-
-    return Math.max(0, months);
-}
-
-export function formatAge(birthDate: Date | string): string {
-    const total = getAgeInMonths(birthDate);
-    const years = Math.floor(total / 12);
-    const months = total % 12;
-
-    if (years === 0) return translate('age.months', { count: months });
-    if (months === 0) return translate('age.years', { count: years });
-
-    return translate('age.yearsAndMonths', {
-        years: translate('age.years', { count: years }),
-        months: translate('age.months', { count: months }),
-    });
-}
-
-export default function PetCard({ name, birthDate, description, imageUrl }: PetCardProps) {
+export default function PetCard({ name, birthDate, description, imageUrl, onFavourite, onAddToCart }: PetCardProps) {
     return (
         <div className='pet-card'>
             <img src={imageUrl} alt={name} />
             <h3>{name}</h3>
             <h4>{formatAge(birthDate)}</h4>
             <p>{description}</p>
-            <button className='pet-card-button'>{translate('pet.viewDetails')}</button>
+            
+            <div className='pet-card-actions'>
+                <button className='pet-card-favourite' onClick={onFavourite} aria-label={translate('pet.favourite')} title={translate('pet.favourite')}>
+                    <img src={heartIcon} alt='' />
+                </button>
+
+                <button className='pet-card-view-details' title={translate('pet.viewDetails')}>
+                    {translate('pet.viewDetails')}
+                </button>
+
+                <button className='pet-card-add-to-cart' onClick={onAddToCart} aria-label={translate('pet.addToCart')} title={translate('pet.addToCart')}>
+                    <img src={cartIcon} alt='' />
+                </button>
+            </div>
+
         </div>
     );
 }

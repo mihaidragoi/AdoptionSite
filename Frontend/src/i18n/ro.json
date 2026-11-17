@@ -39,7 +39,9 @@
         "yearsAndMonths": "{{years}} și {{months}}"
     },
     "pet": {
-        "viewDetails": "Vezi detalii"
+        "viewDetails": "Vezi detalii",
+        "addToCart": "Adaugă în coș",
+        "favourite": "Adaugă la favorite"
     },
     "footer": {
         "tagline": "Fiecare animal merită o casă iubitoare.",
@@ -77,7 +79,8 @@
     "cart":{
         "title": "Coșul tău",
         "empty": "Coșul tău este gol.",
-        "remove": "Șterge"
+        "remove": "Șterge",
+        "age": "Vârstă"
     },
     "common": {
         "loading": "Se încarcă..."
