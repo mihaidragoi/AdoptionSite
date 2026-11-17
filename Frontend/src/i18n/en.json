@@ -80,6 +80,10 @@
         "remove": "Remove",
         "age": "Age"
     },
+    "favourite": {
+        "title": "Your favourites",
+        "empty": "You have no favourite pets."
+    },
     "common": {
         "loading": "Loading..."
     },

@@ -7,6 +7,7 @@ import Home from "./pages/Home/Home.tsx"
 import Login from './pages/Login/Login.tsx'
 import Register from './pages/Register/Register'
 import Settings from './pages/Settings/Settings.tsx'
+import Favourite from './pages/Favourite/Favourite.tsx'
 import Cart from './pages/Cart/Cart.tsx'
 
 import GuestRoute from './auth/GuestRoute.tsx'
@@ -26,6 +27,7 @@ function App() {
 
                 <Route element={<ProtectedRoute />}>
                     <Route path="/settings" element={<Settings />} />
+                    <Route path="/favourites" element={<Favourite />} />
                     <Route path="/cart" element={<Cart />} />
                 </Route>
             </Routes>

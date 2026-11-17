@@ -113,7 +113,9 @@ function NavBar() {
                     </Link>
                 )}
 
+                <Link to='/favourites'>
                 <img className='nav-favorite' src={favoriteIcon} alt={translate('navbar.favorites')} />
+                </Link>
 
                 <Link to='/cart'>
                 <img className='nav-cart' src={cartIcon} alt={translate('navbar.cart')} />

@@ -1,0 +1,22 @@
+.favourite-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 3rem;
+}
+
+.favourite-title {
+    margin: 0 0 1.5rem;
+    font-size: 2rem;
+}
+
+.favourite-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.favourite-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    opacity: 0.7;
+}

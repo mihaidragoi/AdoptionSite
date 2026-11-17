@@ -82,6 +82,10 @@
         "remove": "Șterge",
         "age": "Vârstă"
     },
+    "favourite": {
+        "title": "Favoritele tale",
+        "empty": "Nu ai animale favorite."
+    },
     "common": {
         "loading": "Se încarcă..."
     },
