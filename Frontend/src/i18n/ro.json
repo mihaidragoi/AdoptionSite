@@ -74,6 +74,11 @@
         "removePicture": "Șterge poza",
         "passwordMismatch": "Parolele noi nu coincid"
     },
+    "cart":{
+        "title": "Coșul tău",
+        "empty": "Coșul tău este gol.",
+        "remove": "Șterge"
+    },
     "common": {
         "loading": "Se încarcă..."
     },
