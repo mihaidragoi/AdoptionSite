@@ -51,7 +51,31 @@
         "favorites": "Favorite",
         "cart": "Coș",
         "greeting": "Bună, {{name}}!",
-        "logout": "Deconectare"
+        "logout": "Deconectare",
+        "settings": "Setări"
+    },
+    "settings": {
+        "title": "Setări",
+        "profile": "Profil",
+        "firstName": "Prenume",
+        "lastName": "Nume",
+        "email": "Email",
+        "phone": "Număr de telefon",
+        "save": "Salvează modificările",
+        "saved": "Modificările au fost salvate",
+        "security": "Securitate",
+        "currentPassword": "Parola curentă",
+        "newPassword": "Parola nouă",
+        "confirmPassword": "Confirmă parola nouă",
+        "changePassword": "Schimbă parola",
+        "profilePicture": "Poză de profil",
+        "profilePictureAlt": "Poza de profil",
+        "changePicture": "Schimbă poza",
+        "removePicture": "Șterge poza",
+        "passwordMismatch": "Parolele noi nu coincid"
+    },
+    "common": {
+        "loading": "Se încarcă..."
     },
     "errors": {
         "BadEmail": "Adresa de email nu este validă.",
@@ -63,6 +87,8 @@
         "PasswordsDontMatch": "Parolele nu coincid.",
         "Unknown": "Ceva nu a mers. Încearcă din nou.",
         "NoConnection": "Nu m-am putut conecta la server.",
-        "InvalidCredentials": "Email sau parolă invalidă."
+        "InvalidCredentials": "Email sau parolă invalidă.",
+        "WrongPassword": "Parola curentă este incorectă.",
+        "SamePassword": "Parola nouă trebuie să fie diferită de cea curentă."
     }
 }

@@ -13,15 +13,23 @@ builder.Services.AddAuthentication("Cookies")
                     : CookieSecurePolicy.Always;
     });
 
+builder.Services.AddAntiforgery();
 builder.Services.AddAuthorization();
 
 builder.Services.AddDbContext<Db>(o =>
     o.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<FileStorageService>();
 
 var app = builder.Build();
 
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseAntiforgery();
+
 app.MapAuthEndpoints();
+app.MapUserEndpoints();
 
 app.Run();

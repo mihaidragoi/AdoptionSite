@@ -46,7 +46,7 @@ public class AuthService(Db db)
         catch (DbUpdateException ex) when (ex.InnerException is PostgresException { SqlState: PostgresErrorCodes.UniqueViolation } pg)
         {
             return Result<UserDto>.Failure(
-                pg.ConstraintName?.Contains("Email") == true ? "EmailTaken" : "PhoneTaken");
+                pg.ConstraintName?.Contains("Email", StringComparison.OrdinalIgnoreCase) == true ? "EmailTaken" : "PhoneTaken");
         }
 
         return Result<UserDto>.Success(new UserDto(

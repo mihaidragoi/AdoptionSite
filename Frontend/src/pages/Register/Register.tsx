@@ -26,7 +26,7 @@ function Register() {
             setForm((f) => ({ ...f, [field]: e.target.value }))
     }
 
-    async function handleSubmit(e: React.FormEvent) {
+    async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
         e.preventDefault()
         setError(null)
 

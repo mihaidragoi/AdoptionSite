@@ -13,6 +13,8 @@ type AuthContextValue = {
     loading: boolean
     setUser: (u: User | null) => void
     logout: () => Promise<void>
+    refreshProfilePic: () => void
+    profilePicVersion: number
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null)
@@ -20,6 +22,7 @@ const AuthContext = createContext<AuthContextValue | null>(null)
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [user, setUser] = useState<User | null>(null)
     const [loading, setLoading] = useState(true)
+    const [profilePicVersion, setProfilePicVersion] = useState(Date.now())
 
     useEffect(() => {
         fetch('/api/auth/me')
@@ -34,8 +37,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setUser(null)
     }
 
+    function refreshProfilePic() {
+        setProfilePicVersion(Date.now())
+    }
+
     return (
-        <AuthContext.Provider value={{ user, loading, setUser, logout }}>
+        <AuthContext.Provider value={{ user, loading, setUser, logout, refreshProfilePic, profilePicVersion }}>
             {children}
         </AuthContext.Provider>
     )
