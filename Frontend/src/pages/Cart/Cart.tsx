@@ -2,42 +2,58 @@ import {translate} from "../../i18n/translate";
 import './Cart.css'
 
 import CartItem, {type CartItemData} from "@/components/CartItem/CartItem";
-import {useState} from "react";
-
-const testItems: CartItemData[] = [
-    {
-        id: '1',
-        name: 'Rex',
-        birthDate: '2021-03-12',
-        description: 'Ciobănesc german jucăuș și energic. Se înțelege bine cu copiii și iubește plimbările lungi.',
-        imageUrl: 'https://placedog.net/400/300?id=1',
-    },
-    {
-        id: '2',
-        name: 'Luna',
-        birthDate: '2022-07-01',
-        description: 'Câine liniștit și afectuos, obișnuit cu viața la apartament. Vaccinat și sterilizat.',
-        imageUrl: 'https://placedog.net/400/300?id=2',
-    },
-    {
-        id: '3',
-        name: 'Max',
-        birthDate: '2019-11-23',
-        description: 'Labrador blând și ascultător, perfect pentru o familie activă. Are nevoie de curte sau de multă mișcare.',
-        imageUrl: 'https://placedog.net/400/300?id=3',
-    },
-]
+import {useEffect, useState} from "react";
+import { getErrorMessage } from "@/api/errors";
 
 function Cart() {
-    const [cartItems, setCartItems] = useState<CartItemData[]>(testItems)
+    const [cartItems, setCartItems] = useState<CartItemData[]>([])
+    const [error, setError] = useState<string | null>(null)
+    const [loading, setLoading] = useState(true)
 
-    function removeItem(id: string) {
-        setCartItems((i)=> i.filter(item => item.id !== id))
+    useEffect(() => {
+        async function fetchCart() {
+            try {
+                const response = await fetch('/api/cart')
+                if(!response.ok){
+                    setError(await getErrorMessage(response))
+                    return
+                }
+
+                const data = await response.json()
+
+                const items: CartItemData[] = data.map((item: any) => ({
+                    id: String(item.id),
+                    name: item.name,
+                    birthDate: item.birthDate,
+                    description: item.description,
+                    imageUrl: item.imageUrl
+                }))
+
+                setCartItems(items)
+            }
+            catch{
+                setError(translate('errors.NoConnection'))
+            }
+            finally{
+                setLoading(false)
+            }
+            
+        }
+        fetchCart()
+    },[])
+
+    if(loading)
+    {
+        return <main className ="cart-page">
+            <p>{translate('common.loading')}</p>
+        </main>
     }
 
     return (
         <main className="cart-page">
             <h1 className="cart-title">{translate('cart.title')}</h1>
+            {error && <p className ="cart-error">{error}</p>}
+
             {cartItems.length === 0 ? (
                 <p className="cart-empty">{translate('cart.empty')}</p>
             ) : (
@@ -46,7 +62,6 @@ function Cart() {
                         <CartItem
                             key={item.id}
                             item={item}
-                            onRemove={removeItem}
                         />
                     ))}
                 </div>

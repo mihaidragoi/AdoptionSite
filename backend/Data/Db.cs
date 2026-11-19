@@ -7,6 +7,9 @@ public class Db(DbContextOptions<Db> options) : DbContext(options)
 
     public DbSet<User> Users => Set<User>();
 
+    public DbSet<Favourite> Favourites => Set<Favourite>();
+    public DbSet<CartItem> CartItems => Set<CartItem>();
+
     protected override void OnModelCreating(ModelBuilder b)
     {
         b.Entity<Pet>(e =>
@@ -49,6 +52,36 @@ public class Db(DbContextOptions<Db> options) : DbContext(options)
 
             e.HasIndex(u => u.Email).IsUnique();
             e.HasIndex(u => u.PhoneNumber).IsUnique();
+        });
+
+        b.Entity<Favourite>(e =>
+        {
+            e.HasIndex( f => new {f.UserId, f.PetId}).IsUnique();
+
+            e.HasOne( f=> f.User )
+            .WithMany()
+            .HasForeignKey( f => f.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+            e.HasOne( f=> f.Pet )
+            .WithMany()
+            .HasForeignKey( f => f.PetId)
+            .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        b.Entity<CartItem>(e =>
+        {
+            e.HasIndex( c => new {c.UserId, c.PetId}).IsUnique();
+
+            e.HasOne( c=> c.User )
+            .WithMany()
+            .HasForeignKey( c => c.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+            e.HasOne( c=> c.Pet )
+            .WithMany()
+            .HasForeignKey( c => c.PetId)
+            .OnDelete(DeleteBehavior.Cascade);
         });
     }
 }

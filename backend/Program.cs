@@ -22,6 +22,8 @@ builder.Services.AddDbContext<Db>(o =>
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<FileStorageService>();
+builder.Services.AddScoped<CartService>();
+builder.Services.AddScoped<FavouriteService>();
 
 var app = builder.Build();
 
@@ -31,5 +33,7 @@ app.UseAntiforgery();
 
 app.MapAuthEndpoints();
 app.MapUserEndpoints();
+app.MapCartEndpoints();
+app.MapFavouriteEndpoints();
 
 app.Run();
