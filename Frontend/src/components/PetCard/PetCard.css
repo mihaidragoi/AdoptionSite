@@ -97,3 +97,8 @@
     object-fit: contain;
     filter: invert(1); 
 }
+
+.pet-card button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

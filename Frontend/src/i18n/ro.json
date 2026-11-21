@@ -27,7 +27,8 @@
     "home": {
         "title": "Găsește-ți noul cel mai bun prieten",
         "welcome": "Bun venit în adăpostul nostru de animale! Aici, animalele așteaptă să găsească o familie iubitoare și o casă pentru totdeauna. Fiecare animal merită iubire și grijă!",
-        "recentlySheltered": "Animale adăpostite recent"
+        "recentlySheltered": "Animale adăpostite recent",
+        "noPets": "Nu există animale adăpostite momentan."
     },
     "age": {
         "months_one": "{{count}} lună",
@@ -101,6 +102,13 @@
         "NoConnection": "Nu m-am putut conecta la server.",
         "InvalidCredentials": "Email sau parolă invalidă.",
         "WrongPassword": "Parola curentă este incorectă.",
-        "SamePassword": "Parola nouă trebuie să fie diferită de cea curentă."
+        "SamePassword": "Parola nouă trebuie să fie diferită de cea curentă.",
+        "AlreadyInCart": "Acest animal este deja în coș.",
+        "PetNotFound": "Animalul nu a fost găsit.",
+        "PetAlreadyAdopted": "Acest animal a fost deja adoptat.",
+        "NotInCart": "Animalul nu este în coș.",
+        "AlreadyInFavourites": "Acest animal este deja în favorite.",
+        "NotInFavourites": "Animalul nu este în favorite.",
+        "MustBeLoggedIn": "Trebuie să fii autentificat pentru a efectua această acțiune."
     }
 }

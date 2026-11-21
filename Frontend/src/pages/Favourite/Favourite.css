@@ -20,3 +20,17 @@
     padding: 3rem 1rem;
     opacity: 0.7;
 }
+
+.favourite-loading {
+    text-align: center;
+    padding: 3rem 1rem;
+    opacity: 0.7;
+}
+
+.favourite-error {
+    padding: 0.75rem 1rem;
+    margin: 0 0 1rem;
+    border-radius: 6px;
+    background: rgba(220, 53, 69, 0.12);
+    color: #dc3545;
+}

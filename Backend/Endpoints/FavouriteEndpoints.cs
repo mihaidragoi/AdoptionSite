@@ -15,6 +15,46 @@ public static class FavouriteEndpoints{
 
         }).RequireAuthorization();
 
+        group.MapGet("/ids", async (ClaimsPrincipal p, FavouriteService favouriteService) =>
+        {
+            var userIdString = p.FindFirstValue(ClaimTypes.NameIdentifier);
+            if(string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out var userId))
+                return Results.Unauthorized();
+            
+            var result = await favouriteService.GetFavouritesIds(userId);
+            return result.Ok
+                ? Results.Ok(result.Value)
+                : Results.BadRequest(result.Error);
+
+        }).RequireAuthorization();
+
+
+        group.MapPost("/{petId:int}", async (ClaimsPrincipal p, int petId, FavouriteService favouriteService) =>
+        {
+            var userIdString = p.FindFirstValue(ClaimTypes.NameIdentifier);
+            if(string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out var userId))
+                return Results.Unauthorized();
+            
+            var result = await favouriteService.AddToFavourites(userId, petId);
+            return result.Ok
+                ? Results.Ok()
+                : Results.BadRequest(result.Error);
+
+        }).RequireAuthorization();
+
+        group.MapDelete("/{petId:int}", async (ClaimsPrincipal p, int petId, FavouriteService favouriteService) =>
+        {
+            var userIdString = p.FindFirstValue(ClaimTypes.NameIdentifier);
+            if(string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out var userId))
+                return Results.Unauthorized();
+            
+            var result = await favouriteService.RemoveFromFavourites(userId, petId);
+            return result.Ok
+                ? Results.Ok()
+                : Results.BadRequest(result.Error);
+
+        }).RequireAuthorization();
+
         return app;
     }
 

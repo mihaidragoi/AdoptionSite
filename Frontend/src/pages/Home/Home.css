@@ -43,6 +43,22 @@
     animation: pet-appear 0.6s ease forwards;
 }
 
+.home-error {
+    padding: 0.75rem 1rem;
+    margin: 0 0 1rem;
+    border-radius: 6px;
+    background: rgba(220, 53, 69, 0.12);
+    color: #dc3545;
+}
+
+.home-loading,
+.home-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem 1rem;
+    opacity: 0.7;
+}
+
 @keyframes pet-appear {
     from {
         opacity: 0;

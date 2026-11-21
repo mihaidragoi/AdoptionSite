@@ -5,10 +5,13 @@ import CartItem, {type CartItemData} from "@/components/CartItem/CartItem";
 import {useEffect, useState} from "react";
 import { getErrorMessage } from "@/api/errors";
 
+import { useCart } from "@/cart/CartContext";
+
 function Cart() {
     const [cartItems, setCartItems] = useState<CartItemData[]>([])
     const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState(true)
+    const {removeFromCart} = useCart()
 
     useEffect(() => {
         async function fetchCart() {
@@ -42,28 +45,35 @@ function Cart() {
         fetchCart()
     },[])
 
-    if(loading)
-    {
-        return <main className ="cart-page">
-            <p>{translate('common.loading')}</p>
-        </main>
+    async function handleRemoveFromCart(id: string) {
+        const errorMessage = await removeFromCart(id)
+        if(errorMessage) {
+            setError(errorMessage)
+            return
+        }
+        setCartItems(items => items.filter(item => item.id !== id))
+        setError(null)
     }
 
     return (
         <main className="cart-page">
             <h1 className="cart-title">{translate('cart.title')}</h1>
-            {error && <p className ="cart-error">{error}</p>}
 
-            {cartItems.length === 0 ? (
+            {error && <p className="cart-error">{error}</p>}
+
+            {loading ? (
+                <p className="cart-loading">{translate('common.loading')}</p>
+            ) : cartItems.length === 0 ? (
                 <p className="cart-empty">{translate('cart.empty')}</p>
-            ) : (
+            ) : ( 
                 <div className="cart-items">
-                    {cartItems.map((item) => (
-                        <CartItem
-                            key={item.id}
-                            item={item}
-                        />
-                    ))}
+                {cartItems.map((item) => (
+                    <CartItem
+                        key={item.id}
+                        item={item}
+                        onRemove={handleRemoveFromCart}
+                    />
+                ))}
                 </div>
             )}
         </main>

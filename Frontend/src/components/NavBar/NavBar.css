@@ -137,6 +137,25 @@
     opacity: 0.8;
 }
 
+.nav-cart-link {
+    position: relative;
+}
+
+.nav-cart-count {
+    position: absolute;
+    top: -0.4rem;
+    right: -0.5rem;
+    min-width: 1rem;
+    padding: 0 0.25rem;
+    border-radius: 1rem;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1rem;
+    text-align: center;
+}
+
 @media (prefers-reduced-motion: reduce) {
 
     .logo,

@@ -11,6 +11,18 @@ builder.Services.AddAuthentication("Cookies")
         o.Cookie.SecurePolicy = builder.Environment.IsDevelopment()
                     ? CookieSecurePolicy.SameAsRequest
                     : CookieSecurePolicy.Always;
+
+        o.Events.OnRedirectToLogin = context =>
+        {
+            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            return Task.CompletedTask;
+        };
+
+        o.Events.OnRedirectToAccessDenied = context =>
+        {
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            return Task.CompletedTask;
+        };
     });
 
 builder.Services.AddAntiforgery();
@@ -24,6 +36,7 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<FileStorageService>();
 builder.Services.AddScoped<CartService>();
 builder.Services.AddScoped<FavouriteService>();
+builder.Services.AddScoped<PetService>();
 
 var app = builder.Build();
 
@@ -35,5 +48,6 @@ app.MapAuthEndpoints();
 app.MapUserEndpoints();
 app.MapCartEndpoints();
 app.MapFavouriteEndpoints();
+app.MapPetEndpoints();
 
 app.Run();

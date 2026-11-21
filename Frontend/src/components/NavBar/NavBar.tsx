@@ -9,6 +9,8 @@ import defaultProfilePic from '@/assets/testing/profile_pic.png'
 
 import { useAuth } from '@/auth/AuthContext'
 
+import {useCart} from "@/cart/CartContext";
+
 import './NavBar.css'
 
 function NavBar() {
@@ -18,6 +20,8 @@ function NavBar() {
     const menuRef = useRef<HTMLDivElement>(null)
 
     const [profilePic, setProfilePic] = useState(defaultProfilePic)
+
+    const {count} = useCart()
 
     useEffect(() => {
         if (!user) {
@@ -117,8 +121,13 @@ function NavBar() {
                 <img className='nav-favorite' src={favoriteIcon} alt={translate('navbar.favorites')} />
                 </Link>
 
-                <Link to='/cart'>
+                <Link to='/cart' className='nav-cart-link'>
                 <img className='nav-cart' src={cartIcon} alt={translate('navbar.cart')} />
+                {count > 0 && (
+                        <div className='nav-cart-count'>
+                            {count}
+                        </div>
+                    )}
                 </Link>
             </div>
         </div>

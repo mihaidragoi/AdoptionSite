@@ -4,6 +4,8 @@ import FavouriteItem, { type FavouriteItemData } from '@/components/FavouriteIte
 import {useEffect, useState} from "react";
 import { getErrorMessage } from "@/api/errors";
 
+import {useCart} from "@/cart/CartContext";
+
 import './Favourite.css'
 
 
@@ -12,6 +14,8 @@ function Favourite() {
 
     const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState(true)
+
+    const {addToCart} = useCart()
 
     useEffect(() => {
         async function fetchFavourites() {
@@ -44,6 +48,32 @@ function Favourite() {
         fetchFavourites()
     }, [])
 
+    async function handleRemoveFromFavourites(id: string) {
+        try {
+            const response = await fetch(`/api/favourites/${id}`, {
+                method: 'DELETE'
+            })
+            if (!response.ok) {
+                setError(await getErrorMessage(response))
+                return
+            }
+            setFavouriteItems(items => items.filter(item => item.id !== id))
+            setError(null)
+        }
+        catch {
+            setError(translate('errors.NoConnection'))
+        }
+    }
+
+    async function handleAddToCart(id: string) {
+        const errorMessage = await addToCart(id)
+        if(errorMessage) {
+            setError(errorMessage)
+            return
+        }
+        await handleRemoveFromFavourites(id)
+    }
+
     return (
         <main className="favourite-page">
             <h1 className="favourite-title">{translate('favourite.title')}</h1>
@@ -59,6 +89,8 @@ function Favourite() {
                             <FavouriteItem
                                 key={item.id}
                                 item={item}
+                                onRemove={handleRemoveFromFavourites}
+                                onAddToCart={handleAddToCart}
                             />
                         ))}
                     </div>

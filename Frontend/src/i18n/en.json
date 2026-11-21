@@ -27,7 +27,8 @@
     "home": {
         "title": "Find your new best friend",
         "welcome": "Welcome to our animal adoption shop! Here, pets are waiting to find a loving family and a forever home. Every animal deserves love and care!",
-        "recentlySheltered": "Recently sheltered pets"
+        "recentlySheltered": "Recently sheltered pets",
+        "noPets": "There are no pets currently sheltered."
     },
     "age": {
         "months_one": "{{count}} month",
@@ -99,6 +100,13 @@
         "NoConnection": "Couldn't connect to the server.",
         "InvalidCredentials": "Invalid email or password.",
         "WrongPassword": "The current password is incorrect.",
-        "SamePassword": "The new password must be different from the current one."
+        "SamePassword": "The new password must be different from the current one.",
+        "AlreadyInCart": "This pet is already in the cart.",
+        "PetNotFound": "The pet was not found.", 
+        "PetAlreadyAdopted": "The pet has already been adopted.",
+        "NotInCart": "The pet is not in the cart.",
+        "AlreadyInFavourites": "This pet is already in favourites.",
+        "NotInFavourites": "This pet is not in favourites.",
+        "MustBeLoggedIn": "You must be logged in to perform this action."
     }
 }

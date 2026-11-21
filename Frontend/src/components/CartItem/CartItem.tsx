@@ -16,6 +16,7 @@ type CartItemProps = {
 }
 
 function CartItem({ item, onRemove }: CartItemProps) {
+
     return (
         <div className="cart-item">
             {item.imageUrl && (
