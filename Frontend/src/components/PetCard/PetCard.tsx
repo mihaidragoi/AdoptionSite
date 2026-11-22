@@ -5,6 +5,8 @@ import heartIcon from '@/assets/navbar/heart.svg'
 import heartFilledIcon from '@/assets/navbar/heart-solid-full.svg'
 import cartIcon from '@/assets/navbar/cart.svg'
 
+import {Link} from 'react-router-dom'
+
 import './PetCard.css'
 
 export type PetData = {
@@ -16,6 +18,7 @@ export type PetData = {
 }
 
 type PetCardProps = {
+    id: string;
     name: string;
     birthDate: string | null;
     description: string;
@@ -24,11 +27,10 @@ type PetCardProps = {
     isInCart?: boolean;
 
     onFavourite?: () => void;
-    onAddToCart?: () => void;
-};
+    onAddToCart?: () => void;};
 
 
-export default function PetCard({ name, birthDate, description, imageUrl, isFavourite, isInCart, onFavourite, onAddToCart }: PetCardProps) {
+export default function PetCard({ id, name, birthDate, description, imageUrl, isFavourite, isInCart, onFavourite, onAddToCart }: PetCardProps) {
     return (
         <div className='pet-card'>
             {imageUrl && (<img src={imageUrl} alt={name} />)}
@@ -41,9 +43,9 @@ export default function PetCard({ name, birthDate, description, imageUrl, isFavo
                     <img src={isFavourite ? heartFilledIcon : heartIcon} alt='' />
                 </button>
 
-                <button className='pet-card-view-details' title={translate('pet.viewDetails')}>
+                <Link to={`/pets/${id}`} className='pet-card-view-details' title={translate('pet.viewDetails')}>
                     {translate('pet.viewDetails')}
-                </button>
+                </Link>
 
                 <button className='pet-card-add-to-cart' onClick={onAddToCart} disabled={isInCart} aria-label={translate('pet.addToCart')} title={translate('pet.addToCart')}>
                     <img src={cartIcon} alt='' />

@@ -26,7 +26,8 @@ public static class AuthEndpoints
                 var user = result.Value!;
                 var claims = new[]
                 {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(ClaimTypes.Role, user.Role)
                 };
 
                 await ctx.SignInAsync("Cookies", new ClaimsPrincipal(new ClaimsIdentity(claims, "Cookies")));
@@ -39,7 +40,7 @@ public static class AuthEndpoints
             var u = await db.Users.FindAsync(id);
             return u is null
                 ? Results.Unauthorized()
-                : Results.Ok(new UserDto(u.Id, u.Email, u.PhoneNumber, u.FirstName, u.LastName));
+                : Results.Ok(new UserDto(u.Id, u.Email, u.PhoneNumber, u.FirstName, u.LastName, u.Role.ToString()));
         }).RequireAuthorization();
 
         group.MapPost("/logout", async (HttpContext ctx) =>

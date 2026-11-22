@@ -28,7 +28,29 @@
         "title": "Find your new best friend",
         "welcome": "Welcome to our animal adoption shop! Here, pets are waiting to find a loving family and a forever home. Every animal deserves love and care!",
         "recentlySheltered": "Recently sheltered pets",
-        "noPets": "There are no pets currently sheltered."
+        "noPets": "There are no pets currently sheltered.",
+        "viewAll": "View all pets"
+    },
+    "viewPets": {
+        "title": "View all pets"
+    },
+    "petDetails": {
+    "type": "Type",
+    "breed": "Breed",
+    "sex": "Sex",
+    "size": "Size",
+    "age": "Age",
+    "birthDate": "Birth date",
+    "shelterDate": "Shelter date",
+    "neutered": "Neutered",
+    "vaccinated": "Vaccinated",
+    "about": "About"
+    },
+    "enums": {
+    "type": { "Dog": "Dog", "Cat": "Cat" },
+    "sex": { "Male": "Male", "Female": "Female" },
+    "size": { "Small": "Small", "Medium": "Medium", "Large": "Large" },
+    "yesNo": { "Yes": "Yes", "No": "No", "Unknown": "Unknown" }
     },
     "age": {
         "months_one": "{{count}} month",
@@ -53,7 +75,8 @@
         "cart": "Cart",
         "greeting": "Hello, {{name}}!",
         "logout": "Log out",
-        "settings": "Settings"
+        "settings": "Settings",
+        "administratorSettings": "Administrator Settings"
     },
     "settings": {
         "title": "Settings",
@@ -87,6 +110,17 @@
     },
     "common": {
         "loading": "Loading..."
+    },
+    "admin": {
+    "name": "Name",
+    "type": "Type",
+    "shelterDate": "Shelter date",
+    "status": "Status",
+    "adopted": "Adopted",
+    "available": "Available",
+    "delete": "Delete",
+    "edit": "Edit",
+    "addPet": "Add pet"
     },
     "errors": {
         "BadEmail": "The email address is not valid.",

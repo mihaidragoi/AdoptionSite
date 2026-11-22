@@ -1,0 +1,84 @@
+.view-pet {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 5rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.view-pet-images {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.view-pet-images img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+.view-pet-info {
+    background-color: white;
+    border: 1px solid var(--color-accent);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.view-pet-info h1 {
+    margin: 0 0 1rem;
+    color: var(--color-primary);
+}
+
+.view-pet-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.view-pet-details p {
+    margin: 0;
+    font-weight: 600;
+}
+
+.view-pet-details span {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.view-pet-description {
+    margin: 0;
+    line-height: 1.6;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-accent);
+}
+
+.view-pet-error,
+.view-pet-message {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.view-pet-error {
+    max-width: 30rem;
+    margin: 1rem auto;
+    border-radius: 6px;
+    background: rgba(220, 53, 69, 0.12);
+    color: #dc3545;
+}
+
+.view-pet-message {
+    opacity: 0.7;
+}
+
+@media (max-width: 700px) {
+    .view-pet {
+        grid-template-columns: 1fr;
+    }
+}

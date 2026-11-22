@@ -1,0 +1,132 @@
+.admin-settings-page {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2rem 1rem 3rem;
+}
+
+.admin-settings-title {
+    margin: 0 0 1.5rem;
+    font-size: 2rem;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.admin-loading {
+    text-align: center;
+    padding: 3rem 1rem;
+    opacity: 0.7;
+}
+
+.admin-error {
+    padding: 0.75rem 1rem;
+    margin: 0 0 1rem;
+    border-radius: 6px;
+    background: rgba(220, 53, 69, 0.12);
+    color: #dc3545;
+}
+
+.admin-table-wrapper {
+    overflow-x: auto;
+    background: var(--color-bg);
+    border: 1px solid var(--color-accent);
+    border-radius: 0.5rem;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 40rem;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 0.75rem;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--color-accent);
+}
+
+.admin-table th {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.admin-table-img {
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.admin-status {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.admin-status-available {
+    background: rgba(40, 167, 69, 0.15);
+    color: #1e7e34;
+}
+
+.admin-status-adopted {
+    background: rgba(108, 117, 125, 0.18);
+    color: #495057;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.admin-button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.admin-button:hover {
+    opacity: 0.85;
+}
+
+.admin-button-add {
+    display: block;
+    margin: 0 auto 1rem;
+    background: var(--color-primary);
+}
+
+.admin-button-danger {
+    background: #dc3545;
+}
+
+@media (max-width: 700px) {
+    .admin-settings-title {
+        font-size: 1.5rem;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 0.5rem;
+    }
+
+    .admin-table-img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}

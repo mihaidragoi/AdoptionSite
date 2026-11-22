@@ -95,6 +95,18 @@ function NavBar() {
                                 >
                                     {translate('navbar.settings')}
                                 </Link>
+
+                                {user.role === 'Admin' && (
+                                    <Link
+                                        to='/administratorSettings'
+                                        className='nav-menu-item'
+                                        role='menuitem'
+                                        onClick={() => setMenuOpen(false)}
+                                    >
+                                        {translate('navbar.administratorSettings')}
+                                    </Link>
+                                )}
+
                                 <button
                                     type='button'
                                     className='nav-menu-item'

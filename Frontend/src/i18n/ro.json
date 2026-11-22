@@ -28,7 +28,29 @@
         "title": "Găsește-ți noul cel mai bun prieten",
         "welcome": "Bun venit în adăpostul nostru de animale! Aici, animalele așteaptă să găsească o familie iubitoare și o casă pentru totdeauna. Fiecare animal merită iubire și grijă!",
         "recentlySheltered": "Animale adăpostite recent",
-        "noPets": "Nu există animale adăpostite momentan."
+        "noPets": "Nu există animale adăpostite momentan.",
+        "viewAll": "Vezi toate animalele"
+    },
+    "viewPets": {
+        "title": "Vezi toate animalele"
+    },
+    "petDetails": {
+    "type": "Tip",
+    "breed": "Rasă",
+    "sex": "Sex",
+    "size": "Mărime",
+    "age": "Vârstă",
+    "birthDate": "Data nașterii",
+    "shelterDate": "Data adăpostirii",
+    "neutered": "Sterilizat",
+    "vaccinated": "Vaccinat",
+    "about": "Despre"
+    },
+    "enums": {
+    "type": { "Dog": "Câine", "Cat": "Pisică" },
+    "sex": { "Male": "Mascul", "Female": "Femelă" },
+    "size": { "Small": "Mic", "Medium": "Mediu", "Large": "Mare" },
+    "yesNo": { "Yes": "Da", "No": "Nu", "Unknown": "Necunoscut" }
     },
     "age": {
         "months_one": "{{count}} lună",
@@ -55,7 +77,8 @@
         "cart": "Coș",
         "greeting": "Bună, {{name}}!",
         "logout": "Deconectare",
-        "settings": "Setări"
+        "settings": "Setări",
+        "administratorSettings": "Setări Administrator"
     },
     "settings": {
         "title": "Setări",
@@ -89,6 +112,17 @@
     },
     "common": {
         "loading": "Se încarcă..."
+    },
+    "admin": {
+    "name": "Nume",
+    "type": "Tip",
+    "shelterDate": "Data adăpostirii",
+    "status": "Status",
+    "adopted": "Adoptat",
+    "available": "Disponibil",
+    "delete": "Șterge",
+    "edit": "Editează",
+    "addPet": "Adaugă animal"
     },
     "errors": {
         "BadEmail": "Adresa de email nu este validă.",

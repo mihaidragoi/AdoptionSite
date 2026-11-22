@@ -6,6 +6,7 @@ export type User = {
     phoneNumber: string
     firstName: string
     lastName: string
+    role: string
 }
 
 type AuthContextValue = {

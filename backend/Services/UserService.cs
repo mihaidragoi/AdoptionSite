@@ -52,7 +52,8 @@ public class UserService(Db db)
             user.Email,
             user.PhoneNumber,
             user.FirstName,
-            user.LastName
+            user.LastName,
+            user.Role.ToString()
         ));
     }
 

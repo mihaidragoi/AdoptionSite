@@ -13,6 +13,7 @@ import {useEffect, useState } from 'react'
 
 import {useAuth} from "../../auth/AuthContext";
 import { useCart } from '../../cart/CartContext';
+import { Link } from 'react-router-dom'
 
 
 const slides = [slide1, slide0, slide2];
@@ -115,8 +116,7 @@ function Home() {
     {
         setError(translate('errors.NoConnection'))
     }
-}
-    
+}   
     return (
         <div className='home'>
             <div className='motive'>
@@ -148,6 +148,7 @@ function Home() {
                             style={{ animationDelay: `${i * 100}ms` }}
                             >   
                             <PetCard
+                                id={pet.id}
                                 name={pet.name}
                                 birthDate={pet.birthDate}
                                 description={pet.description}
@@ -161,6 +162,7 @@ function Home() {
                         ))
                     )}
                 </div>
+                    <Link to="/viewAllPets" className="home-view-all">{translate('home.viewAll')}</Link>
             </div>
         </div>
     )

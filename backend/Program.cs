@@ -37,6 +37,7 @@ builder.Services.AddScoped<FileStorageService>();
 builder.Services.AddScoped<CartService>();
 builder.Services.AddScoped<FavouriteService>();
 builder.Services.AddScoped<PetService>();
+builder.Services.AddScoped<AdminPetService>();
 
 var app = builder.Build();
 
@@ -49,5 +50,6 @@ app.MapUserEndpoints();
 app.MapCartEndpoints();
 app.MapFavouriteEndpoints();
 app.MapPetEndpoints();
+app.MapAdminPetsEndpoints();
 
 app.Run();

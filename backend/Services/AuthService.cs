@@ -35,7 +35,7 @@ public class AuthService(Db db)
             PhoneNumber = dto.PhoneNumber,
             PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
             FirstName = dto.FirstName.Trim(),
-            LastName = dto.LastName.Trim()
+            LastName = dto.LastName.Trim()        
         };
 
         try
@@ -54,7 +54,8 @@ public class AuthService(Db db)
             user.Email,
             user.PhoneNumber,
             user.FirstName,
-            user.LastName
+            user.LastName,
+            user.Role.ToString()
         ));
     }
 
@@ -71,7 +72,8 @@ public class AuthService(Db db)
             user.Email,
             user.PhoneNumber,
             user.FirstName,
-            user.LastName
+            user.LastName,
+            user.Role.ToString()
         ));
     }
 }

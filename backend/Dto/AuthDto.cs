@@ -11,7 +11,8 @@ public record UserDto(
     string Email,
     string PhoneNumber,
     string FirstName,
-    string LastName
+    string LastName,
+    string Role
 );
 
 public record LoginDto(
