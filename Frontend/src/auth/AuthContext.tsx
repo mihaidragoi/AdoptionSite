@@ -26,12 +26,46 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [profilePicVersion, setProfilePicVersion] = useState(Date.now())
 
     useEffect(() => {
+        const originalFetch = window.fetch
+
+        window.fetch = async (...args) => {
+            const res = await originalFetch(...args)
+
+            const url = typeof args[0] === 'string' ? args[0] : args[0] instanceof Request ? args[0].url : args[0].toString()
+            if (res.status === 401 && !url.includes('/api/auth/login')) {
+                setUser(null)
+            }
+            return res
+        }
+
+        return () => {
+            window.fetch = originalFetch
+        }
+    }, [])
+
+    useEffect(() => {
         fetch('/api/auth/me')
             .then((res) => (res.ok ? res.json() : null))
             .then(setUser)
             .catch(() => setUser(null))
             .finally(() => setLoading(false))
     }, [])
+
+    useEffect(() => {
+        if (!user) return
+
+        const check = () => { fetch('/api/auth/me') }
+        const id = setInterval(check, 60_000)
+        const onVisible = () => {
+            if (document.visibilityState === 'visible') check()
+        }
+        document.addEventListener('visibilitychange', onVisible)
+
+        return () => {
+            clearInterval(id)
+            document.removeEventListener('visibilitychange', onVisible)
+        }
+    }, [user])
 
     async function logout() {
         await fetch('/api/auth/logout', { method: 'POST' })

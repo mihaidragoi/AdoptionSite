@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,31 @@ builder.Services.AddAuthentication("Cookies")
         {
             context.Response.StatusCode = StatusCodes.Status403Forbidden;
             return Task.CompletedTask;
+        };
+
+        o.Events.OnValidatePrincipal = async context =>
+        {
+            var userIdClaim = context.Principal?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var roleClaim = context.Principal?.FindFirst(ClaimTypes.Role)?.Value;
+
+            if (!int.TryParse(userIdClaim, out var userId))
+            {
+                context.RejectPrincipal();
+                await context.HttpContext.SignOutAsync("Cookies");
+                return;
+            }
+
+            var db = context.HttpContext.RequestServices.GetRequiredService<Db>();
+            var currentRole = await db.Users
+                .Where(u => u.Id == userId)
+                .Select(u => u.Role)
+                .FirstOrDefaultAsync();
+
+            if (currentRole.ToString() != roleClaim)
+            {
+                context.RejectPrincipal();
+                await context.HttpContext.SignOutAsync("Cookies");
+            }
         };
     });
 

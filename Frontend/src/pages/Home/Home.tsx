@@ -6,12 +6,12 @@ import { translate } from '@/i18n/translate.ts'
 
 import './Home.css'
 
-import PetCard, {type PetData} from '../../components/PetCard/PetCard';
+import PetCard, { type PetData } from '../../components/PetCard/PetCard';
 import Slideshow from '../../components/Slideshow/Slideshow';
 import { getErrorMessage } from '../../api/errors'
-import {useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import {useAuth} from "../../auth/AuthContext";
+import { useAuth } from "../../auth/AuthContext";
 import { useCart } from '../../cart/CartContext';
 import { Link } from 'react-router-dom'
 
@@ -25,7 +25,7 @@ function Home() {
     const [loading, setLoading] = useState(true)
     const [favouritesIds, setFavouritesIds] = useState<Set<string>>(new Set())
     const { user, loading: authLoading } = useAuth()
-    const {cartIds, addToCart} = useCart()
+    const { cartIds, addToCart } = useCart()
 
     useEffect(() => {
         async function fetchPets() {
@@ -56,9 +56,9 @@ function Home() {
 
 
     useEffect(() => {
-        if(authLoading) return
+        if (authLoading) return
 
-        if(!user) {
+        if (!user) {
             setFavouritesIds(new Set())
             return
         }
@@ -79,44 +79,43 @@ function Home() {
     }, [user?.id, authLoading])
 
     async function handleAddToCart(id: string) {
-    if(!user) {
-        setError(translate('errors.MustBeLoggedIn'))
-        return
-    }
-
-    const errorMessage = await addToCart(id)
-    setError(errorMessage)
-}
-
-    async function handleFavourite(id: string) {
-    if(!user) {
-        setError(translate('errors.MustBeLoggedIn'))
-        return
-    }
-    const isFavourite = favouritesIds.has(id)
-    try {
-        const response = await fetch(`/api/favourites/${id}`, {
-            method: isFavourite ? 'DELETE' : 'POST'
-        })
-        if (!response.ok) {
-            setError(await getErrorMessage(response))
+        if (!user) {
+            setError(translate('errors.MustBeLoggedIn'))
             return
         }
-        setFavouritesIds(prev => {
-            const newSet = new Set(prev)
-            if (isFavourite)
-                newSet.delete(id)
-            else 
-                newSet.add(id)
-            return newSet
-        })
-        setError(null)
+
+        const errorMessage = await addToCart(id)
+        setError(errorMessage)
     }
-    catch 
-    {
-        setError(translate('errors.NoConnection'))
+
+    async function handleFavourite(id: string) {
+        if (!user) {
+            setError(translate('errors.MustBeLoggedIn'))
+            return
+        }
+        const isFavourite = favouritesIds.has(id)
+        try {
+            const response = await fetch(`/api/favourites/${id}`, {
+                method: isFavourite ? 'DELETE' : 'POST'
+            })
+            if (!response.ok) {
+                setError(await getErrorMessage(response))
+                return
+            }
+            setFavouritesIds(prev => {
+                const newSet = new Set(prev)
+                if (isFavourite)
+                    newSet.delete(id)
+                else
+                    newSet.add(id)
+                return newSet
+            })
+            setError(null)
+        }
+        catch {
+            setError(translate('errors.NoConnection'))
+        }
     }
-}   
     return (
         <div className='home'>
             <div className='motive'>
@@ -143,26 +142,26 @@ function Home() {
                     ) : (
                         pets.map((pet, i) => (
                             <div
-                            key={pet.id}
-                            className='pet-appear'
-                            style={{ animationDelay: `${i * 100}ms` }}
-                            >   
-                            <PetCard
-                                id={pet.id}
-                                name={pet.name}
-                                birthDate={pet.birthDate}
-                                description={pet.description}
-                                imageUrl={pet.imageUrl}
-                                isFavourite={favouritesIds.has(pet.id)}
-                                isInCart={cartIds.has(pet.id)}
-                                onFavourite={() => handleFavourite(pet.id)}
-                                onAddToCart={() => handleAddToCart(pet.id)}
-                            />
+                                key={pet.id}
+                                className='pet-appear'
+                                style={{ animationDelay: `${i * 100}ms` }}
+                            >
+                                <PetCard
+                                    id={pet.id}
+                                    name={pet.name}
+                                    birthDate={pet.birthDate}
+                                    description={pet.description}
+                                    imageUrl={pet.imageUrl}
+                                    isFavourite={favouritesIds.has(pet.id)}
+                                    isInCart={cartIds.has(pet.id)}
+                                    onFavourite={() => handleFavourite(pet.id)}
+                                    onAddToCart={() => handleAddToCart(pet.id)}
+                                />
                             </div>
                         ))
                     )}
                 </div>
-                    <Link to="/viewAllPets" className="home-view-all">{translate('home.viewAll')}</Link>
+                <Link to="/viewAllPets" className="home-view-all">{translate('home.viewAll')}</Link>
             </div>
         </div>
     )

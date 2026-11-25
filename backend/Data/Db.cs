@@ -56,31 +56,31 @@ public class Db(DbContextOptions<Db> options) : DbContext(options)
 
         b.Entity<Favourite>(e =>
         {
-            e.HasIndex( f => new {f.UserId, f.PetId}).IsUnique();
+            e.HasIndex(f => new { f.UserId, f.PetId }).IsUnique();
 
-            e.HasOne( f=> f.User )
+            e.HasOne(f => f.User)
             .WithMany()
-            .HasForeignKey( f => f.UserId)
+            .HasForeignKey(f => f.UserId)
             .OnDelete(DeleteBehavior.Cascade);
 
-            e.HasOne( f=> f.Pet )
+            e.HasOne(f => f.Pet)
             .WithMany()
-            .HasForeignKey( f => f.PetId)
+            .HasForeignKey(f => f.PetId)
             .OnDelete(DeleteBehavior.Cascade);
         });
 
         b.Entity<CartItem>(e =>
         {
-            e.HasIndex( c => new {c.UserId, c.PetId}).IsUnique();
+            e.HasIndex(c => new { c.UserId, c.PetId }).IsUnique();
 
-            e.HasOne( c=> c.User )
+            e.HasOne(c => c.User)
             .WithMany()
-            .HasForeignKey( c => c.UserId)
+            .HasForeignKey(c => c.UserId)
             .OnDelete(DeleteBehavior.Cascade);
 
-            e.HasOne( c=> c.Pet )
+            e.HasOne(c => c.Pet)
             .WithMany()
-            .HasForeignKey( c => c.PetId)
+            .HasForeignKey(c => c.PetId)
             .OnDelete(DeleteBehavior.Cascade);
         });
     }
